@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!-- Page Title start -->
+<div class="pageTitle">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-6">
+        <h1 class="page-heading">Post Job</h1>
+      </div>
+      <div class="col-md-6 col-sm-6">
+        <div class="breadCrumb"><a href="#.">Home</a> / <span>Post Job</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page Title End -->
+  <div class="listpgWraper" data-toggle="validator" id="form">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="userccount">
+            <div class="formpanel"> 
+              
+              <!-- Ad Information -->
+              <h5>Ad Information</h5>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="formrow">
+                    <input type="text" id="adTitle" name="jobtitle" class="form-control" placeholder="Ad Title*" required>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="formrow">
+                    <input type="text" id="jobTitle" name="jobtitle" class="form-control" placeholder="Your Name">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="formrow">
+                    <select class="form-control" name="indus" id="adType">
+                      <option value="" disabled selected style="display: none;">Ad type*</option>
+                      <option value="1">I want to Sell</option>
+                      <option value="2">I want to Buy</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="formrow">
+                    <select class="form-control" name="indus" id="payType">
+                      <option value="" disabled selected style="display: none;">Payment type*</option>
+                      <option value="1">Cash</option>
+                      <option value="2">Credit Card</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="formrow">
+                    <input type="text" name="jobtitle" class="form-control" placeholder="Website" id="website">
+                  </div>
+                </div>
+                
+                
+                <div class="col-md-6">
+                  <div class="formrow">
+                    <input type="text" name="jobtitle" class="form-control" placeholder="Ad Price" id="adPrice">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="formrow">
+                    <select class="form-control" name="indus" id="currency">
+                      <option value="" disabled selected style="display: none;">Currency</option>
+                      <option value="1">USA Dollar</option>
+                      <option value="2">Euro</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="formrow">
+                    <select class="form-control" name="emptype" id="country">
+                      <option value="" disabled selected style="display: none;">Select Country*</option>
+                      {% for country in address.countries %}
+                        <option value="{{ country.id }}">{{ country.country_name }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="formrow">
+                    <select class="form-control" name="emptype" id="state">                    
+                      <option value="" disabled selected style="display: none;">Select State</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="formrow">
+                    <select class="form-control" name="experience" id="city">
+                      <option value="" disabled selected style="display: none;">Select City</option>
+                    </select>
+                  </div>
+                </div>
+                <div id="recaptcha-container" class="col-md-4">
+                  <div class="formrow">
+                    <div class="g-recaptcha" data-sitekey="6LeBmCcUAAAAAPr5kKa_AKPr8UWNCkht3CHCBkNf" data-callback="verify"></div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="formrow">
+                    <textarea class="form-control" name="jobdetail" placeholder="Ad Detail" id="adDetail"></textarea>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <button type="button" class="btn" id="sendData">Post An Ad</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

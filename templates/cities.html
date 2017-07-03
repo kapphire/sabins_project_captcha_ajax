@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block content %}
+	<p>Welcome To Cities</p>
+	<br>
+	<div class="container">
+		<div class="col-lg-12">
+			<table class="table table-stripped table-bordered" id="cities-table">
+				<thead>
+					<tr>
+						<th width="60px">#</th>
+						<th>City Name</th>
+						<th width="160px">Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for city in cities %}
+					<tr class="city-record">
+						<td>{{city.id}}</td>
+						<td>{{city.city_name}}</td>
+						<td><button class="btn btn-danger form-control delete-city" data-id="{{city.id}}">Delete</button></td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}
